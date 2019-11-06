@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile Edit Form{% endblock %}
+
+{% block content %}
+	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
+
+	<h2>USER AND PRODILE EDIT FORM</h2>
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ user_form.as_p }}
+		{{ profile_form.as_p }}
+		<button>Submit</button>
+	</form>
+{% endblock %}

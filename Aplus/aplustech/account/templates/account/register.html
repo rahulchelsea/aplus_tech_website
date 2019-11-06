@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Register Page {% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h2>Create Your account here:</h2>
+
+		<form action="" method="POST">
+			{{ user_form.as_p }}
+			{% csrf_token %}
+
+			<input type="submit" value="Create My Account">
+
+		</form>
+	</div>
+{% endblock %}

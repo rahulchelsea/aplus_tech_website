@@ -1,0 +1,37 @@
+
+	
+
+
+{% extends 'base.html' %}
+
+{% block title %} Student List {% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="col-md-4"></div>
+
+		<div class="col-md-4">
+			<table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>USERS</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+		    {% for i in slist %}
+		      <tr>
+				<td style="font-size: 25px"><a href="{% url 'student_attendance:student_detail' i.pk %}"> <h2>{{i.user}}</h2> </a>
+		        </td>
+		        
+		      </tr>
+		    {% endfor %} 
+		    </tbody>
+
+		  </table>
+		</div>
+		
+		<div class="col-md-4"></div>
+		
+	</div>	
+{% endblock %}

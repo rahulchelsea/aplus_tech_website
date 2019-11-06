@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Login Form{% endblock %}
+
+{% block content %}
+<div class="container">
+	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
+
+	<h3>LOGIN</h3>
+	<form method="POST" action="">
+		{% csrf_token %}
+		{{ form.as_p}}
+		<button type="submit">LogIn</button>
+		<a href="{% url 'password_reset' %}"><p>Forgot Password</p></a>
+	</form>	
+</div>	
+{% endblock %}

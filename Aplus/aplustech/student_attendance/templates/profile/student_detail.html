@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Student Detail {% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<table class="table table-striped">
+		    <thead>
+		      <tr>
+		      	<th>Image</th>
+		        <th>Username</th>
+		        <th>First Name: </th>
+		        <th>Last Name:  </th>
+		        <th>Sex: </th>
+		        <th>Phone Number:  </th>
+		        <th>Date Of Birth: </th>
+		        <th>Address: </th>
+		        <th>Course: </th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+		      <tr>
+		      	<td>{% if slist.photo %}
+					<img src="{{slist.photo.url}}" width="200px" height="200px">
+					{% endif %}
+				</td>
+		        <td>{{slist.user}}</td>
+		        <td>{{slist.first_name}}</td>
+		        <td>{{slist.last_name}}</td>
+		        <td>{{slist.sex}}</td>
+		        <td>{{slist.phone}}</td>
+		        <td>{{slist.DOB}}</td>
+		        <td>{{slist.address}}</td>
+		        <td>{{slist.course}}</td>
+		      </tr>
+		     
+		    </tbody>
+		  </table>
+		
+	</div>	
+{% endblock %}

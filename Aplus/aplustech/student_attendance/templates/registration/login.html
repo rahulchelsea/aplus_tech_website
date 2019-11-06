@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} LOGIN FORM {% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="col-md-3"></div>
+
+		<div class="col-md-6">
+			{% if form.errors %}
+				<h2>Your username or password didnt matched </h2>
+				<h3>Please enter correct USERNAME and PASSWORD </h3>
+			{% endif %}
+
+			<form method="POST" action="">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<button type="submit">LogIn</button>
+			</form>	
+			<a href="{% url 'password_reset' %}"><button>Forgot Password</button></a> 
+		</div>
+
+		<div class="col-md-3"></div>
+	</div>	
+{% endblock %}

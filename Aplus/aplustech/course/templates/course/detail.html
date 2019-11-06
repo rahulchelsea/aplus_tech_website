@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} A Plus Tech {% endblock %}
+	
+{% block content %}
+	<div class="container">
+		<h3><b>{{clist.course_name}}</b></h3>
+		<p>Course Fee: {{clist.course_fee}}</p>
+		<p>Course Duration: {{clist.course_duration}}</p>
+		<p>Detail: </p>
+		<p>{{ clist.course_detail }}</p>
+	</div>
+{% endblock %}
+	

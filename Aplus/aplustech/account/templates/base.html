@@ -1,0 +1,66 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header style="font-size: 50px; text-align: center;"> Aplus Tech </header>
+	<div id="header">
+		<span class="logo">Bookmarks</span>
+		{% if request.user.is_authenticated %}
+		 <ul class="menu">
+		 	<li>
+		 		Hello {{request.user.username}}
+		 	</li>
+		 </ul>
+		{% endif %}
+		
+		<span class="user">
+			{% if request.user.is_authenticated %}
+				HELLO {{ request.user.username }},
+				<a href="{% url 'account:logout' %}">Logout</a>
+			{% else %}
+				<a href="{% url 'account:login' %}">Log-in</a>	
+			{% endif %}
+		</span> 
+	</div>
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="{% url 'course:index' %}">Aplus Tech</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="{% url 'course:index' %}">Home</a></li>
+
+	      <li><a href="{% url 'course:list' %}">COURSE</a></li>
+
+		  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'account:login' %}">Sign In/Sign Up <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="{% url 'account:login' %}">Sign In</a></li>
+	          <li><a href="{% url 'account:register' %}">Sign Up</a></li>
+	        </ul>
+	      </li>
+
+	      <li><a href="{% url 'course:enroll' %}">ENROLL</a></li>
+
+	      <li><a href="{% url 'contactus:contact' %}">Contact Us</a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+	{% block content %}
+	{% endblock %}
+
+	<footer></footer>
+</body>
+</html>
+
